@@ -11,6 +11,18 @@ header {
     text-align: center;
     justify-items: center;
 }
+header img {
+    width: 500px;
+    height: auto;
+    margin: 1rem 0;
+}
+@media (max-width: 600px) {
+    header img {
+        width: 100%;
+    }
+    
+}
+
 main {
     padding: 2rem;
 }
