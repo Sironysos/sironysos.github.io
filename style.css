@@ -2,24 +2,38 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: white;
     color: #333;
 }
 header {
-    background: #0078d7;
-    color: white;
-    padding: 1rem 0;
+    background: #fff8db;
+    color:#333;
     text-align: center;
+    justify-items: center;
 }
 main {
     padding: 2rem;
 }
+
+section {
+    display: flex;
+    background: seagreen;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+video {
+    object-fit:scale-down;
+    z-index: 1;
+}
+
 footer {
     background: #333;
     color: white;
     text-align: center;
     padding: 1rem 0;
-    position: fixed;
     bottom: 0;
     width: 100%;
 }

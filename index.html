@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Website</title>
+    <meta name="description" content="A simple HTML page">
+    <title>Alice's website</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to My Website</h1>
+        <img src="assets/images/poissonsAvril.png" alt="Poisson d'avril!" style="width: 500px">
+        <h1>Poisson d'avril !</h1>
     </header>
     <main>
-        <p>This is a simple HTML page.</p>
+        <section style="display: flex; align-items: center; justify-content: center; position: relative;">
+            <img src="assets/images/beach.png" alt="Beach" style="position: absolute; top: 0; height: 100%; object-fit: cover; z-index: 0;">
+            <video controls loop style="max-height: 500px; z-index: 1;">
+                <source src="assets/images/Fish_Rolled.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+            </video>
+        </section>
     </main>
     <footer>
-        <p>&copy; 2025 Sironysos. All rights reserved.</p>
+        <p>&copy; <script>document.write(new Date().getFullYear());</script> Sironysos</p>
     </footer>
 </body>
 </html>
