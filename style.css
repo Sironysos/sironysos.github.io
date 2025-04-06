@@ -11,19 +11,19 @@ header {
     color:#333;
     text-align: center;
     justify-items: center;
-    padding: 2rem 0;
+    padding: 2rem 0 0;
+    margin-bottom: 0;
 }
 header img {
     width: 500px;
     height: auto;
     margin: 1rem 0;
 }
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     header img {
         width: 100%;
     }
-    
-}
+} */
 
 main {
     padding: 2rem;
@@ -50,5 +50,9 @@ footer {
     padding: 1rem 0;
     bottom: 0;
     width: 100%;
-    position: fixed;
+}
+
+.nav-bar {
+padding: 1rem 0;
+box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
 }
