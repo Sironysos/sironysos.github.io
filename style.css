@@ -48,11 +48,71 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem 0;
-    bottom: 0;
-    width: 100%;
 }
 
 .nav-bar {
-padding: 1rem 0;
-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
 }
+
+.CV {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.CV *:nth-child(odd):not(:first-child) {
+    background-color: #fff8da;
+    color: #58595B;
+    margin: 0;
+    padding: 1rem;
+}
+
+.resume-name-wrapper {
+    grid-column: 1 / -1;
+    background-color: #58595B;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.resume-introduction {
+    grid-column: 1 / -1;
+    padding: 1rem;
+    text-align: center;
+    font-style: italic;
+}
+  
+.section-content {
+    padding: 1rem;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+.experience-item {
+    margin-bottom: 15px;
+}
+
+.experience-title {
+    font-weight: bold;
+}
+
+.experience-company {
+    font-style: italic;
+}
+
+.experience-date {
+    font-size: 0.9em;
+}
+
+.experience-description {
+    margin-top: 5px;
+}
+  

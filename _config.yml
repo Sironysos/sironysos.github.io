@@ -1,0 +1,12 @@
+title: CuisINSA
+email: votremail@example.com
+description: >- 
+  Des recettes simples pour les étudiant•e•s, avec photos et vidéos.
+baseurl: ""
+url: "https://sironysos.github.io"
+theme: minima
+plugins:
+  - jekyll-feed
+
+markdown: kramdown
+highlighter: rouge
