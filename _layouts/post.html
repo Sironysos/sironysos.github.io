@@ -2,8 +2,109 @@
 layout: default
 ---
 
-<article>
-  <h1>{{ page.title }}</h1>
-  <p><small>Publié le {{ page.date | date: "%d %B %Y" }}</small></p>
-  {{ content }}
+<article class="recipe-post">
+  <div class="recipe-hero">
+    {% if page.image %}
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    {% else %}
+      <div style="display: flex; align-items: center; justify-content: center; font-size: 5rem; color: white;">
+        🍽️
+      </div>
+    {% endif %}
+    <div class="recipe-hero-overlay">
+      <h1>{{ page.title }}</h1>
+      <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+        <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; backdrop-filter: blur(10px);">
+          📅 {{ page.date | date: "%d %B %Y" }}
+        </span>
+        {% if page.difficulty %}
+          <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; backdrop-filter: blur(10px);">
+            {{ page.difficulty }}
+          </span>
+        {% endif %}
+        {% if page.time %}
+          <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; backdrop-filter: blur(10px);">
+            ⏱️ {{ page.time }}
+          </span>
+        {% endif %}
+        {% if page.servings %}
+          <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; backdrop-filter: blur(10px);">
+            👥 {{ page.servings }} personnes
+          </span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-content">
+    {{ content }}
+  </div>
+
+  {% if page.video %}
+    <div style="margin: 3rem 0;">
+      <h2 style="color: #2d3748; font-size: 1.5rem; margin-bottom: 1rem; text-align: center;">
+        🎥 Vidéo de la recette
+      </h2>
+      <div class="video-container">
+        <iframe
+          src="{{ page.video }}"
+          frameborder="0"
+          allowfullscreen
+          title="Vidéo : {{ page.title }}">
+        </iframe>
+      </div>
+    </div>
+  {% endif %}
+
+  <div style="background: #f7fafc; padding: 2rem; border-radius: 15px; margin: 3rem 0;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        {% if page.tags %}
+          <div style="margin-bottom: 1rem;">
+            <strong style="color: #2d3748;">🏷️ Tags :</strong>
+            {% for tag in page.tags %}
+              <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div>
+        <strong style="color: #2d3748; display: block; margin-bottom: 0.5rem;">📤 Partager :</strong>
+        <div style="display: flex; gap: 0.5rem;">
+          <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url | url_encode }}"
+             target="_blank"
+             style="background: #1da1f2; color: white; padding: 0.5rem; border-radius: 8px; text-decoration: none;">
+            🐦 Twitter
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}"
+             target="_blank"
+             style="background: #4267b2; color: white; padding: 0.5rem; border-radius: 8px; text-decoration: none;">
+            📘 Facebook
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav style="display: flex; justify-content: space-between; margin: 3rem 0; gap: 1rem;">
+    {% if page.previous.url %}
+      <a href="{{ page.previous.url }}" class="btn btn-secondary" style="flex: 1; text-align: center;">
+        ← {{ page.previous.title | truncate: 30 }}
+      </a>
+    {% endif %}
+
+    <a href="/" class="btn btn-primary" style="flex: 0 0 auto;">
+      🏠 Accueil
+    </a>
+
+    {% if page.next.url %} {# <-- This was the problematic line #}
+      <a href="{{ page.next.url }}" class="btn btn-secondary" style="flex: 1; text-align: center;">
+        {{ page.next.title | truncate: 30 }} →
+      </a>
+    {% endif %} {# <-- Closing the if statement #}
+  </nav>
+
+  {% include giscus.html %} {# Including Giscus comments here, typically at the end of a post #}
+
 </article>

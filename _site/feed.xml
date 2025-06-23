@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-06-23T23:09:29+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">CuisINSA</title><subtitle>Des recettes simples pour les étudiant•e•s, avec photos et vidéos.</subtitle><entry><title type="html">Pâtes à la Carbonara</title><link href="http://localhost:4000/2025/06/22/pates-carbonara.html" rel="alternate" type="text/html" title="Pâtes à la Carbonara" /><published>2025-06-22T00:00:00+02:00</published><updated>2025-06-22T00:00:00+02:00</updated><id>http://localhost:4000/2025/06/22/pates-carbonara</id><content type="html" xml:base="http://localhost:4000/2025/06/22/pates-carbonara.html"><![CDATA[<h2 id="ingrédients">Ingrédients</h2>
+
+<ul>
+  <li>200g de pâtes</li>
+  <li>100g de lardons</li>
+  <li>1 jaune d’œuf</li>
+  <li>Parmesan</li>
+  <li>Sel, poivre</li>
+</ul>
+
+<h2 id="étapes">Étapes</h2>
+
+<ol>
+  <li>Fais cuire les pâtes dans de l’eau bouillante salée.</li>
+  <li>Fais revenir les lardons à la poêle.</li>
+  <li>Égoutte les pâtes, ajoute les lardons, le jaune d’œuf, le parmesan.</li>
+  <li>Mélange hors du feu pour obtenir une sauce onctueuse.</li>
+</ol>
+
+<p><img src="/assets/images/carbonara.png" alt="Carbonara" /></p>
+
+<div class="video-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/shorts/fv10tre0jGE" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<hr />
+
+<div id="giscus_thread"></div>
+<script src="https://giscus.app/client.js" data-repo="sironysos/sironysos.github.io" data-repo-id="R_kgDOORK8bQ" data-category="Ideas" data-category-id="DIC_kwDOORK8bc4Cr2Rn" data-mapping="pathname" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="fr" data-loading="lazy" crossorigin="anonymous" async="">
+</script>]]></content><author><name></name></author><summary type="html"><![CDATA[Ingrédients]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/carbonara.png" /><media:content medium="image" url="http://localhost:4000/assets/images/carbonara.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

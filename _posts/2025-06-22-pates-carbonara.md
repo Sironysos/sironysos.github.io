@@ -2,7 +2,7 @@
 layout: post
 title: "Pâtes à la Carbonara"
 date: 2025-06-22
-image: /assets/images/carbonara.jpg
+image: /assets/images/carbonara.png
 video: https://www.youtube.com/shorts/fv10tre0jGE
 ---
 
