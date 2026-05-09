@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R9WZW4VLKC');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recipe finder - Search and filter your recipes">
+    <title>Recipe Finder - Sironysos' website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="recipes.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Recipe Finder</h1>
+        <nav class="header-nav">
+            <a href="index.html">Home</a>
+            <a href="games.html">Games</a>
+        </nav>
+    </header>
+    
+    <main id="app">
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input 
+                type="text" 
+                v-model="searchQuery" 
+                placeholder="Search recipes by name, ingredient, label..."
+                class="search-input"
+            >
+            <button v-if="searchQuery" @click="searchQuery = ''" class="clear-search">Clear</button>
+        </div>
+
+        <!-- Filter Tags Section -->
+        <div class="filters-section">
+            <!-- Active Filters -->
+            <div v-if="hasActiveFilters" class="active-filters">
+                <span class="filter-label">Active filters:</span>
+                <span 
+                    v-for="(value, key) in activeFilters" 
+                    :key="key + '-' + value"
+                    class="filter-tag active"
+                    @click="removeFilter(key, value)"
+                >
+                    {{ formatFilterLabel(key) }}: {{ value }} &times;
+                </span>
+                <button @click="clearAllFilters" class="clear-all-btn">Clear all</button>
+            </div>
+
+            <!-- Filter Categories -->
+            <div class="filter-categories">
+                <!-- Labels Filter -->
+                <div class="filter-group" v-if="availableLabels.length > 0">
+                    <span class="filter-group-title">Labels:</span>
+                    <div class="filter-tags">
+                        <span 
+                            v-for="label in availableLabels" 
+                            :key="'label-' + label"
+                            class="filter-tag"
+                            :class="{ selected: isFilterActive('labels', label) }"
+                            @click="toggleFilter('labels', label)"
+                        >
+                            {{ label }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Dish Place Filter -->
+                <div class="filter-group" v-if="availableDishPlaces.length > 0">
+                    <span class="filter-group-title">Course:</span>
+                    <div class="filter-tags">
+                        <span 
+                            v-for="place in availableDishPlaces" 
+                            :key="'place-' + place"
+                            class="filter-tag"
+                            :class="{ selected: isFilterActive('dishplace', place) }"
+                            @click="toggleFilter('dishplace', place)"
+                        >
+                            {{ place }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Time Filter -->
+                <div class="filter-group" v-if="availableTimes.length > 0">
+                    <span class="filter-group-title">Time:</span>
+                    <div class="filter-tags">
+                        <span 
+                            v-for="time in availableTimes" 
+                            :key="'time-' + time"
+                            class="filter-tag"
+                            :class="{ selected: isFilterActive('time', time) }"
+                            @click="toggleFilter('time', time)"
+                        >
+                            {{ time }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Oven Filter -->
+                <div class="filter-group" v-if="availableOvenValues.length > 0">
+                    <span class="filter-group-title">Oven:</span>
+                    <div class="filter-tags">
+                        <span 
+                            v-for="oven in availableOvenValues" 
+                            :key="'oven-' + oven"
+                            class="filter-tag"
+                            :class="{ selected: isFilterActive('oven', oven) }"
+                            @click="toggleFilter('oven', oven)"
+                        >
+                            {{ oven === 'true' ? 'Yes' : 'No' }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Ingredients Filter -->
+                <div class="filter-group" v-if="availableIngredients.length > 0">
+                    <span class="filter-group-title">Ingredients:</span>
+                    <div class="filter-tags scrollable">
+                        <span 
+                            v-for="ingredient in availableIngredients" 
+                            :key="'ing-' + ingredient"
+                            class="filter-tag"
+                            :class="{ selected: isFilterActive('ingredients', ingredient) }"
+                            @click="toggleFilter('ingredients', ingredient)"
+                        >
+                            {{ ingredient }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Count -->
+        <div class="results-count">
+            <span>{{ filteredRecipes.length }} recipe{{ filteredRecipes.length !== 1 ? 's' : '' }} found</span>
+        </div>
+
+        <!-- Recipe Grid -->
+        <div class="recipe-grid">
+            <div 
+                v-for="recipe in filteredRecipes" 
+                :key="recipe.name"
+                class="recipe-card"
+            >
+                <div class="recipe-header">
+                    <h2>{{ recipe.name }}</h2>
+                    <a v-if="recipe.link" :href="recipe.link" target="_blank" class="recipe-link" title="View recipe">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="recipe-meta">
+                    <span v-if="recipe.time" class="meta-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        {{ recipe.time }}
+                    </span>
+                    <span v-if="recipe.dishplace" class="meta-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
+                            <path d="M7 2v20"></path>
+                            <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
+                        </svg>
+                        {{ recipe.dishplace }}
+                    </span>
+                    <span v-if="recipe.oven === 'true'" class="meta-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                            <rect x="6" y="10" width="12" height="8"></rect>
+                            <circle cx="7" cy="7" r="1"></circle>
+                            <circle cx="12" cy="7" r="1"></circle>
+                        </svg>
+                        Oven
+                    </span>
+                </div>
+
+                <!-- Ingredients -->
+                <div v-if="hasIngredients(recipe)" class="recipe-ingredients">
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <li v-for="ing in recipe.ingredients.filter(i => i.name)" :key="ing.name">
+                            <span class="ing-name">{{ ing.name }}</span>
+                            <span v-if="ing.quantity" class="ing-qty">{{ ing.quantity }}</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Labels -->
+                <div v-if="hasLabels(recipe)" class="recipe-labels">
+                    <span 
+                        v-for="label in recipe.labels.filter(l => l)" 
+                        :key="label"
+                        class="label-tag"
+                        @click="toggleFilter('labels', label)"
+                    >
+                        {{ label }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty State -->
+        <div v-if="filteredRecipes.length === 0" class="empty-state">
+            <p>No recipes found matching your criteria.</p>
+            <button @click="clearAllFilters" class="clear-all-btn">Clear all filters</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear());</script> Sironysos</p>
+    </footer>
+
+    <script>
+        const { createApp, ref, computed, onMounted } = Vue;
+
+        createApp({
+            setup() {
+                const recipes = ref([]);
+                const searchQuery = ref('');
+                const activeFilters = ref({});
+
+                // Load recipes from JSON file
+                onMounted(async () => {
+                    try {
+                        const response = await fetch('recipe.json');
+                        const data = await response.json();
+                        recipes.value = data.recipes;
+                    } catch (error) {
+                        console.error('Error loading recipes:', error);
+                    }
+                });
+
+                // Extract unique values for filters
+                const availableLabels = computed(() => {
+                    const labels = new Set();
+                    recipes.value.forEach(r => {
+                        r.labels?.forEach(l => { if (l) labels.add(l); });
+                    });
+                    return Array.from(labels).sort();
+                });
+
+                const availableDishPlaces = computed(() => {
+                    const places = new Set();
+                    recipes.value.forEach(r => { if (r.dishplace) places.add(r.dishplace); });
+                    return Array.from(places).sort();
+                });
+
+                const availableTimes = computed(() => {
+                    const times = new Set();
+                    recipes.value.forEach(r => { if (r.time) times.add(r.time); });
+                    return Array.from(times).sort();
+                });
+
+                const availableOvenValues = computed(() => {
+                    const ovens = new Set();
+                    recipes.value.forEach(r => { if (r.oven) ovens.add(r.oven); });
+                    return Array.from(ovens);
+                });
+
+                const availableIngredients = computed(() => {
+                    const ingredients = new Set();
+                    recipes.value.forEach(r => {
+                        r.ingredients?.forEach(i => { if (i.name) ingredients.add(i.name); });
+                    });
+                    return Array.from(ingredients).sort();
+                });
+
+                // Filter logic
+                const filteredRecipes = computed(() => {
+                    let result = recipes.value;
+
+                    // Apply search query
+                    if (searchQuery.value) {
+                        const query = searchQuery.value.toLowerCase();
+                        result = result.filter(r => {
+                            const nameMatch = r.name?.toLowerCase().includes(query);
+                            const ingredientMatch = r.ingredients?.some(i => 
+                                i.name?.toLowerCase().includes(query)
+                            );
+                            const labelMatch = r.labels?.some(l => 
+                                l?.toLowerCase().includes(query)
+                            );
+                            const dishplaceMatch = r.dishplace?.toLowerCase().includes(query);
+                            const timeMatch = r.time?.toLowerCase().includes(query);
+                            return nameMatch || ingredientMatch || labelMatch || dishplaceMatch || timeMatch;
+                        });
+                    }
+
+                    // Apply active filters
+                    Object.entries(activeFilters.value).forEach(([key, value]) => {
+                        if (key === 'labels') {
+                            result = result.filter(r => r.labels?.includes(value));
+                        } else if (key === 'ingredients') {
+                            result = result.filter(r => 
+                                r.ingredients?.some(i => i.name === value)
+                            );
+                        } else if (key === 'dishplace') {
+                            result = result.filter(r => r.dishplace === value);
+                        } else if (key === 'time') {
+                            result = result.filter(r => r.time === value);
+                        } else if (key === 'oven') {
+                            result = result.filter(r => r.oven === value);
+                        }
+                    });
+
+                    return result;
+                });
+
+                const hasActiveFilters = computed(() => {
+                    return Object.keys(activeFilters.value).length > 0;
+                });
+
+                function toggleFilter(type, value) {
+                    const key = type;
+                    if (activeFilters.value[key] === value) {
+                        const newFilters = { ...activeFilters.value };
+                        delete newFilters[key];
+                        activeFilters.value = newFilters;
+                    } else {
+                        activeFilters.value = { ...activeFilters.value, [key]: value };
+                    }
+                }
+
+                function removeFilter(key, value) {
+                    const newFilters = { ...activeFilters.value };
+                    delete newFilters[key];
+                    activeFilters.value = newFilters;
+                }
+
+                function clearAllFilters() {
+                    activeFilters.value = {};
+                    searchQuery.value = '';
+                }
+
+                function isFilterActive(type, value) {
+                    return activeFilters.value[type] === value;
+                }
+
+                function formatFilterLabel(key) {
+                    const labels = {
+                        labels: 'Label',
+                        dishplace: 'Course',
+                        time: 'Time',
+                        oven: 'Oven',
+                        ingredients: 'Ingredient'
+                    };
+                    return labels[key] || key;
+                }
+
+                function hasIngredients(recipe) {
+                    return recipe.ingredients?.some(i => i.name);
+                }
+
+                function hasLabels(recipe) {
+                    return recipe.labels?.some(l => l);
+                }
+
+                return {
+                    recipes,
+                    searchQuery,
+                    activeFilters,
+                    availableLabels,
+                    availableDishPlaces,
+                    availableTimes,
+                    availableOvenValues,
+                    availableIngredients,
+                    filteredRecipes,
+                    hasActiveFilters,
+                    toggleFilter,
+                    removeFilter,
+                    clearAllFilters,
+                    isFilterActive,
+                    formatFilterLabel,
+                    hasIngredients,
+                    hasLabels
+                };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
