@@ -2,29 +2,6 @@
   "_aide": "Liste des recettes. Chaque recette : id (unique), titre, photo (chemin ou URL), tags (slugs présents dans tags.json), ingredients (quantite/unite/nom), etapes (texte). Voir le README pour ajouter/modifier/supprimer.",
   "recettes": [
     {
-      "id": "ratatouille-provencale",
-      "titre": "Ratatouille provençale",
-      "photo": "images/ratatouille.png",
-      "tags": ["plat", "vegetarien", "ete"],
-      "ingredients": [
-        { "quantite": 2, "unite": "pièce", "nom": "aubergine" },
-        { "quantite": 3, "unite": "pièce", "nom": "courgette" },
-        { "quantite": 2, "unite": "pièce", "nom": "poivron" },
-        { "quantite": 4, "unite": "pièce", "nom": "tomate" },
-        { "quantite": 1, "unite": "pièce", "nom": "oignon" },
-        { "quantite": 2, "unite": "gousse", "nom": "ail" },
-        { "quantite": 4, "unite": "c. à soupe", "nom": "huile d'olive" },
-        { "quantite": 1, "unite": "branche", "nom": "thym" }
-      ],
-      "etapes": [
-        "Lavez et coupez l'aubergine, les courgettes et les poivrons en dés réguliers.",
-        "Faites revenir l'oignon émincé et l'ail dans l'huile d'olive à feu doux.",
-        "Ajoutez les poivrons, puis les aubergines et enfin les courgettes en laissant colorer entre chaque ajout.",
-        "Incorporez les tomates coupées, le thym, salez et poivrez.",
-        "Laissez mijoter à couvert 40 minutes en remuant de temps en temps. Servez chaud ou tiède."
-      ]
-    },
-    {
       "id": "bechamel",
       "titre": "Sauce béchamel",
       "photo": "images/bechamel.jpg",
@@ -41,109 +18,6 @@
         "Remuez au fouet puis, une fois le mélange homogène (ça fait une sorte de pâte), ajoutez une petite portion du lait, que vous aurez pris soin de peser en amont.",
         "L'idée est d'ajouter le lait en 3 ou 4 fois, pour faire épaissir entre chaque ajout, sur feu moyen, en remuant bien pour éviter les grumeaux.",
         "Au dernier ajout, ne faites pas trop épaissir la crème, elle doit laisser des traces de fouet mais pas être trop épaisse, sinon le gratin ne sera pas crémeux mais plutôt plâtreux! Ajoutez le sel et la muscade et contrôlez l'assaisonnement. Au besoin rectifiez."
-      ]
-    },
-    {
-      "id": "soupe-potiron",
-      "titre": "Velouté de potiron",
-      "photo": "images/soupe-potiron.png",
-      "tags": ["soupe", "vegetarien", "automne"],
-      "ingredients": [
-        { "quantite": 1, "unite": "kg", "nom": "potiron" },
-        { "quantite": 2, "unite": "pièce", "nom": "pomme de terre" },
-        { "quantite": 1, "unite": "pièce", "nom": "oignon" },
-        { "quantite": 1, "unite": "l", "nom": "bouillon de légumes" },
-        { "quantite": 10, "unite": "cl", "nom": "crème fraîche" },
-        { "quantite": 1, "unite": "pincée", "nom": "noix de muscade" }
-      ],
-      "etapes": [
-        "Épluchez le potiron et les pommes de terre, coupez-les en morceaux.",
-        "Faites suer l'oignon émincé dans une grande casserole.",
-        "Ajoutez le potiron, les pommes de terre et le bouillon. Portez à ébullition.",
-        "Laissez cuire 25 minutes jusqu'à ce que les légumes soient tendres.",
-        "Mixez finement, ajoutez la crème et la muscade, rectifiez l'assaisonnement."
-      ]
-    },
-    {
-      "id": "tarte-pommes",
-      "titre": "Tarte aux pommes",
-      "photo": "images/tarte-pommes.png",
-      "tags": ["dessert", "automne"],
-      "ingredients": [
-        { "quantite": 1, "unite": "pièce", "nom": "pâte brisée" },
-        { "quantite": 5, "unite": "pièce", "nom": "pomme" },
-        { "quantite": 50, "unite": "g", "nom": "sucre" },
-        { "quantite": 30, "unite": "g", "nom": "beurre" },
-        { "quantite": 1, "unite": "sachet", "nom": "sucre vanillé" }
-      ],
-      "etapes": [
-        "Préchauffez le four à 180 °C.",
-        "Étalez la pâte dans un moule et piquez le fond avec une fourchette.",
-        "Épluchez et coupez les pommes en fines lamelles, disposez-les en rosace.",
-        "Saupoudrez de sucre et de sucre vanillé, parsemez de noisettes de beurre.",
-        "Enfournez 35 minutes jusqu'à ce que la tarte soit dorée."
-      ]
-    },
-    {
-      "id": "salade-tomates-burrata",
-      "titre": "Salade de tomates et burrata",
-      "photo": "images/salade-burrata.png",
-      "tags": ["entree", "vegetarien", "ete"],
-      "ingredients": [
-        { "quantite": 4, "unite": "pièce", "nom": "tomate" },
-        { "quantite": 1, "unite": "pièce", "nom": "burrata" },
-        { "quantite": 6, "unite": "feuille", "nom": "basilic" },
-        { "quantite": 3, "unite": "c. à soupe", "nom": "huile d'olive" },
-        { "quantite": 1, "unite": "pincée", "nom": "fleur de sel" }
-      ],
-      "etapes": [
-        "Lavez et coupez les tomates en quartiers ou en tranches épaisses.",
-        "Disposez-les sur un plat et déposez la burrata au centre.",
-        "Parsemez de feuilles de basilic ciselées.",
-        "Arrosez d'huile d'olive et assaisonnez de fleur de sel juste avant de servir."
-      ]
-    },
-    {
-      "id": "blanquette-de-veau",
-      "titre": "Blanquette de veau",
-      "photo": "images/blanquette.png",
-      "tags": ["plat", "hiver"],
-      "ingredients": [
-        { "quantite": 800, "unite": "g", "nom": "veau" },
-        { "quantite": 3, "unite": "pièce", "nom": "carotte" },
-        { "quantite": 250, "unite": "g", "nom": "champignon de Paris" },
-        { "quantite": 1, "unite": "pièce", "nom": "oignon" },
-        { "quantite": 1, "unite": "pièce", "nom": "poireau" },
-        { "quantite": 20, "unite": "cl", "nom": "crème fraîche" },
-        { "quantite": 1, "unite": "pièce", "nom": "jaune d'œuf" }
-      ],
-      "etapes": [
-        "Coupez le veau en gros cubes et faites-le blanchir 5 minutes dans l'eau bouillante.",
-        "Rincez la viande puis remettez-la dans une cocotte avec les carottes, l'oignon et le poireau.",
-        "Couvrez d'eau, salez et laissez mijoter 1 h 30 à feu doux.",
-        "Faites revenir les champignons et ajoutez-les à la cocotte.",
-        "Hors du feu, liez la sauce avec la crème mélangée au jaune d'œuf. Servez avec du riz."
-      ]
-    },
-    {
-      "id": "risotto-asperges",
-      "titre": "Risotto aux asperges",
-      "photo": "images/risotto-asperges.png",
-      "tags": ["plat", "vegetarien", "printemps"],
-      "ingredients": [
-        { "quantite": 300, "unite": "g", "nom": "riz arborio" },
-        { "quantite": 500, "unite": "g", "nom": "asperge" },
-        { "quantite": 1, "unite": "pièce", "nom": "oignon" },
-        { "quantite": 10, "unite": "cl", "nom": "vin blanc" },
-        { "quantite": 1, "unite": "l", "nom": "bouillon de légumes" },
-        { "quantite": 60, "unite": "g", "nom": "parmesan" }
-      ],
-      "etapes": [
-        "Coupez les asperges en tronçons et faites-les cuire 5 minutes à l'eau bouillante salée.",
-        "Faites suer l'oignon émincé dans un peu de beurre, ajoutez le riz et nacrez-le.",
-        "Déglacez avec le vin blanc, puis ajoutez le bouillon chaud louche par louche.",
-        "À mi-cuisson, incorporez les asperges et poursuivez la cuisson environ 18 minutes.",
-        "Hors du feu, ajoutez le parmesan râpé et mélangez pour rendre le risotto crémeux."
       ]
     }
   ]

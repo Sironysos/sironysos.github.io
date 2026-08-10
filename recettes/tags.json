@@ -5,10 +5,11 @@
     { "slug": "plat", "libelle": "Plat" },
     { "slug": "dessert", "libelle": "Dessert" },
     { "slug": "soupe", "libelle": "Soupe" },
-    { "slug": "vegetarien", "libelle": "Végétarien" },
     { "slug": "printemps", "libelle": "Printemps" },
     { "slug": "ete", "libelle": "Été" },
     { "slug": "automne", "libelle": "Automne" },
-    { "slug": "hiver", "libelle": "Hiver" }
+    { "slug": "hiver", "libelle": "Hiver" },
+    { "slug": "sauce", "libelle": "Sauce" },
+    { "slug": "glace", "libelle": "Glace" }
   ]
 }
