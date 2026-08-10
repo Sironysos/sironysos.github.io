@@ -1,0 +1,14 @@
+{
+  "_aide": "Liste officielle des tags. 'slug' est l'identifiant utilisé dans recettes.json (minuscules, sans accent, sans espace). 'libelle' est le texte affiché. Pour ajouter un tag, ajoutez une entrée ici puis utilisez son slug dans les recettes.",
+  "tags": [
+    { "slug": "entree", "libelle": "Entrée" },
+    { "slug": "plat", "libelle": "Plat" },
+    { "slug": "dessert", "libelle": "Dessert" },
+    { "slug": "soupe", "libelle": "Soupe" },
+    { "slug": "vegetarien", "libelle": "Végétarien" },
+    { "slug": "printemps", "libelle": "Printemps" },
+    { "slug": "ete", "libelle": "Été" },
+    { "slug": "automne", "libelle": "Automne" },
+    { "slug": "hiver", "libelle": "Hiver" }
+  ]
+}
