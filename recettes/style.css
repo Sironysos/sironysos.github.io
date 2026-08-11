@@ -245,6 +245,47 @@ img {
   border-color: var(--primary);
 }
 
+/* ------- Ressources ------- */
+.resources-section {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0 3rem;
+}
+
+.resources-title {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  margin: 0 0 1rem;
+}
+
+.resources-chips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.resources-chips a {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+
+.resources-chips a:hover {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+}
+
 /* ------- Contenu / grille ------- */
 .results-head {
   display: flex;
