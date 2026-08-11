@@ -45,6 +45,80 @@
         "Retourner la crêpe et cuire 1 minute de l’autre côté.",
         "Recommencer jusqu’à épuisement de la pâte."
       ]
+    },
+    {
+      "id": "tourte-poireau-patate-douce",
+      "titre": "Tourte poireau, patate douce et gravy",
+      "photo": "images/tourte-sauce-gravy.jpg",
+      "tags": ["plat", "hiver"],
+      "ingredients": [
+        { "quantite": 1, "unite": "", "nom": "poireau" },
+        { "quantite": 2, "unite": "", "nom": "oignons" },
+        { "quantite": 2, "unite": "càs", "nom": "sucre" },
+        { "quantite": 500, "unite": "g", "nom": "patate douce" },
+        {
+          "quantite": 20,
+          "unite": "cl",
+          "nom": "sauce tomate ou crème végétale"
+        },
+        { "quantite": 2, "unite": "", "nom": "pâtes feuilletée" },
+        { "quantite": 2, "unite": "càs", "nom": "moutarde" },
+        { "quantite": 500, "unite": "ml", "nom": "bouillon de légumes" },
+        { "quantite": 3, "unite": "càs", "nom": "levure maltée" },
+        { "quantite": 2, "unite": "càs", "nom": "farine" },
+        { "quantite": 3, "unite": "càs", "nom": "sauce soja" },
+        { "quantite": "", "unite": "", "nom": "sel" },
+        { "quantite": "", "unite": "", "nom": "poivre" },
+        { "quantite": 1, "unite": "càc", "nom": "miso noir" },
+        { "quantite": "", "unite": "", "nom": "tofu fumé" },
+        { "quantite": "", "unite": "", "nom": "marrons cuits" }
+      ],
+      "etapes": [
+        "Émincer le poireau et les oignons. Dans une sauteuse, les faire revenir dans un peu d’huile avec le sucre jusqu’à légère caramélisation.",
+        "À l’aide d’une mandoline ou à la main, couper de fines rondelles de patate douce.",
+        "Dans un grand saladier, mélanger les légumes ainsi que la sauce tomate ou la crème, puis assaisonner de sel et de poivre.",
+        "Dans un moule à tarte à bord épais, foncer la première pâte feuilletée et napper le fond de moutarde.",
+        "Placer le mélange de légumes, fermer la tourte avec la deuxième pâte feuilletée, sceller les bords et faire une cheminée au centre.",
+        "Décorer avec les chutes de pâte feuilletée collées avec de l’eau, puis dorer à l’aide d’un peu de crème ou de lait végétal.",
+        "Cuire 20 min à 200 °C, puis encore 40 min à 170 °C.",
+        "Pour la gravy : dans une casserole, mélanger tous les ingrédients puis porter à ébullition en remuant constamment au fouet pendant 10 à 15 minutes.",
+        "La sauce va épaissir doucement. Servir chaud en versant la gravy sur la tourte."
+      ]
+    },
+    {
+      "id": "clafoutis-cerises",
+      "titre": "Clafoutis aux cerises",
+      "photo": "images/clafoutis-aux-cerises.jpg",
+      "tags": ["dessert", "ete"],
+      "ingredients": [
+        {
+          "quantite": 500,
+          "unite": "g",
+          "nom": "cerises (nettoyées, équeutées, dénoyautées et coupées en deux)"
+        },
+        { "quantite": 100, "unite": "g", "nom": "farine" },
+        { "quantite": 60, "unite": "g", "nom": "fécule de maïs" },
+        { "quantite": 100, "unite": "g", "nom": "sucre blond en poudre" },
+        { "quantite": 45, "unite": "g", "nom": "poudre d’amandes" },
+        { "quantite": 1, "unite": "pincée", "nom": "sel" },
+        {
+          "quantite": 30,
+          "unite": "g",
+          "nom": "beurre végétal ou margarine fondu"
+        },
+        { "quantite": 20, "unite": "cl", "nom": "crème d’amande" },
+        { "quantite": 25, "unite": "cl", "nom": "crème d’avoine" }
+      ],
+      "etapes": [
+        "Pour un moule de 24 cm de diamètre.",
+        "Dans un saladier, mélanger la farine avec la fécule, le sucre, la poudre d’amandes et le sel.",
+        "Ajouter le beurre végétal fondu et les crèmes d’amande et d’avoine tiédies.",
+        "Mélanger le tout au fouet jusqu’à obtenir une pâte parfaitement homogène.",
+        "Préchauffer le four 10 min à 220 °C.",
+        "Placer les moitiés de cerises au fond du moule à manqué, puis verser la préparation par-dessus.",
+        "Cuire le clafoutis 30 min à 220 °C (ici 25 min + 5 min sous le grill, à adapter selon votre four). Surveiller la cuisson.",
+        "Laisser refroidir le clafoutis avant de l’entreposer quelques heures au réfrigérateur."
+      ]
     }
   ]
 }

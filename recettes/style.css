@@ -3,6 +3,11 @@ img {
   display: block;
 }
 
+:root {
+  --primary: var(--brand);
+  --primary-dark: var(--brand-strong);
+}
+
 .container {
   width: 100%;
 }
@@ -432,23 +437,29 @@ img {
 
 .steps-list li {
   counter-increment: step;
-  display: flex;
-  gap: 0.9rem;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  column-gap: 0.9rem;
+  align-items: start;
 }
 
 .steps-list li::before {
   content: counter(step);
-  flex: none;
   width: 2rem;
   height: 2rem;
+  margin-top: 0.2rem;
   border-radius: 50%;
   background: var(--primary);
-  color: #fff;
+  color: var(--brand-contrast, #fff);
   display: grid;
   place-items: center;
   font-weight: 600;
   font-family: var(--font-title);
+  border: 1px solid color-mix(in srgb, var(--primary-dark) 28%, transparent);
+}
+
+.steps-list li > span {
+  padding-top: 0.2rem;
 }
 
 /* ------- Responsive ------- */

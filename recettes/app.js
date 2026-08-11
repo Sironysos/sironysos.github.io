@@ -43,7 +43,7 @@ async function chargerJSON(chemin) {
   }
   if (!reponse.ok) {
     throw new Error(
-      "Fichier « " + chemin + " » introuvable (code " + reponse.status + ")."
+      "Fichier « " + chemin + " » introuvable (code " + reponse.status + ").",
     );
   }
   const texte = await reponse.text();
@@ -73,17 +73,20 @@ function validerTags(donnees) {
 
 function validerSaisons(donnees) {
   const parMois = {}; // "1".."12" -> Set de noms normalisés
+  const tousLesFruitsLegumes = new Set(); // tous les ingrédients référencés dans saisons.json
   const source =
     donnees && donnees.mois && typeof donnees.mois === "object"
       ? donnees.mois
       : {};
   for (let m = 1; m <= 12; m++) {
     const arr = Array.isArray(source[String(m)]) ? source[String(m)] : [];
-    parMois[m] = new Set(
-      arr.filter((x) => estTexteNonVide(x)).map((x) => normaliser(x))
-    );
+    const noms = arr
+      .filter((x) => estTexteNonVide(x))
+      .map((x) => normaliser(x));
+    parMois[m] = new Set(noms);
+    noms.forEach((n) => tousLesFruitsLegumes.add(n));
   }
-  return parMois;
+  return { parMois, tousLesFruitsLegumes };
 }
 
 // Renvoie { recettes: [...valides], ignorees: n }
@@ -119,9 +122,7 @@ function validerRecettes(donnees, tagsMap) {
           .filter((i) => i && typeof i === "object" && estTexteNonVide(i.nom))
           .map((i) => ({
             quantite:
-              i.quantite == null || i.quantite === ""
-                ? ""
-                : String(i.quantite),
+              i.quantite == null || i.quantite === "" ? "" : String(i.quantite),
             unite: estTexteNonVide(i.unite) ? i.unite.trim() : "",
             nom: i.nom.trim(),
           }))
@@ -186,7 +187,7 @@ function creerCarte(recette, tagsMap) {
     const tagsWrap = document.createElement("div");
     tagsWrap.className = "card-tags";
     recette.tags.forEach((slug) =>
-      tagsWrap.appendChild(creerPastilleTag(slug, tagsMap))
+      tagsWrap.appendChild(creerPastilleTag(slug, tagsMap)),
     );
     body.appendChild(tagsWrap);
   }
@@ -215,6 +216,7 @@ async function initListe() {
   let recettes = [];
   let tagsMap = new Map();
   let saisonsParMois = {};
+  let tousLesFruitsLegumes = new Set();
 
   function afficherEtat(message, type) {
     zoneEtat.textContent = "";
@@ -236,14 +238,15 @@ async function initListe() {
     ]);
 
     tagsMap = validerTags(dTags);
-    saisonsParMois = validerSaisons(dSaisons);
+    ({ parMois: saisonsParMois, tousLesFruitsLegumes } =
+      validerSaisons(dSaisons));
     const resultat = validerRecettes(dRecettes, tagsMap);
     recettes = resultat.recettes;
 
     if (recettes.length === 0) {
       afficherEtat(
         "Aucune recette valide n'a été trouvée dans recettes.json.",
-        "error"
+        "error",
       );
       return;
     }
@@ -253,7 +256,7 @@ async function initListe() {
     afficherEtat(
       "Erreur de chargement : " +
         (erreur && erreur.message ? erreur.message : "inconnue"),
-      "error"
+      "error",
     );
     return;
   }
@@ -271,7 +274,7 @@ async function initListe() {
     conteneurTags.textContent = "";
     Array.from(tagsUtilises)
       .sort((a, b) =>
-        (tagsMap.get(a) || a).localeCompare(tagsMap.get(b) || b, "fr")
+        (tagsMap.get(a) || a).localeCompare(tagsMap.get(b) || b, "fr"),
       )
       .forEach((slug) => {
         const btn = document.createElement("button");
@@ -300,15 +303,17 @@ async function initListe() {
         if (cle && !ingredientsParNorme.has(cle)) {
           ingredientsParNorme.set(cle, i.nom);
         }
-      })
+      }),
     );
 
-    const triIngredients = Array.from(ingredientsParNorme.entries()).sort((a, b) =>
-      a[1].localeCompare(b[1], "fr")
+    const triIngredients = Array.from(ingredientsParNorme.entries()).sort(
+      (a, b) => a[1].localeCompare(b[1], "fr"),
     );
 
     const inputIngredient = document.getElementById("filtre-ingredient");
-    const zoneIngredientsSelectionnes = document.getElementById("ingredient-selected");
+    const zoneIngredientsSelectionnes = document.getElementById(
+      "ingredient-selected",
+    );
     const zoneSuggestions = document.getElementById("ingredient-suggestions");
 
     function fermerSuggestions() {
@@ -323,8 +328,8 @@ async function initListe() {
         .sort((a, b) =>
           (ingredientsParNorme.get(a) || a).localeCompare(
             ingredientsParNorme.get(b) || b,
-            "fr"
-          )
+            "fr",
+          ),
         )
         .forEach((cle) => {
           const chip = document.createElement("button");
@@ -332,7 +337,7 @@ async function initListe() {
           chip.className = "ingredient-chip";
           chip.setAttribute(
             "aria-label",
-            "Retirer l'ingrédient " + (ingredientsParNorme.get(cle) || cle)
+            "Retirer l'ingrédient " + (ingredientsParNorme.get(cle) || cle),
           );
 
           const libelle = document.createElement("span");
@@ -415,7 +420,7 @@ async function initListe() {
     inputIngredient.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
         const premier = zoneSuggestions.querySelector(
-          ".ingredient-suggestion:not(.empty)"
+          ".ingredient-suggestion:not(.empty)",
         );
         if (premier) {
           event.preventDefault();
@@ -437,8 +442,18 @@ async function initListe() {
 
     // Saison du mois courant.
     const noms = [
-      "janvier", "février", "mars", "avril", "mai", "juin",
-      "juillet", "août", "septembre", "octobre", "novembre", "décembre",
+      "janvier",
+      "février",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "août",
+      "septembre",
+      "octobre",
+      "novembre",
+      "décembre",
     ];
     const moisCourant = new Date().getMonth() + 1;
     document.getElementById("mois-courant").textContent = noms[moisCourant - 1];
@@ -469,10 +484,12 @@ async function initListe() {
   function recetteEstDeSaison(recette) {
     const moisCourant = new Date().getMonth() + 1;
     const ingredientsSaison = saisonsParMois[moisCourant] || new Set();
-    // Règle : au moins un ingrédient de saison suffit.
-    return recette.ingredients.some((i) =>
-      ingredientsSaison.has(normaliser(i.nom))
-    );
+    // Règle : exclure uniquement si un fruit/légume connu n'est pas de saison ce mois.
+    // Une recette sans fruit ni légume répertorié n'est pas exclue.
+    return recette.ingredients.every((i) => {
+      const nom = normaliser(i.nom);
+      return !tousLesFruitsLegumes.has(nom) || ingredientsSaison.has(nom);
+    });
   }
 
   function appliquerFiltres() {
@@ -483,7 +500,9 @@ async function initListe() {
       }
       // Ingrédients sélectionnés : la recette doit tous les contenir.
       for (const ingredient of etat.ingredientsSelectionnes) {
-        const present = r.ingredients.some((i) => normaliser(i.nom) === ingredient);
+        const present = r.ingredients.some(
+          (i) => normaliser(i.nom) === ingredient,
+        );
         if (!present) return false;
       }
       // Saison.
@@ -495,7 +514,7 @@ async function initListe() {
     if (filtrees.length === 0) {
       afficherEtat(
         "Aucune recette ne correspond à ces filtres. Essayez d'en retirer.",
-        "info"
+        "info",
       );
     } else {
       masquerEtat();
@@ -544,7 +563,7 @@ async function initDetail() {
     afficherEtat(
       "Erreur de chargement : " +
         (erreur && erreur.message ? erreur.message : "inconnue"),
-      "error"
+      "error",
     );
     return;
   }
@@ -581,7 +600,7 @@ function rendreDetail(zone, recette, tagsMap) {
     const tagsWrap = document.createElement("div");
     tagsWrap.className = "card-tags";
     recette.tags.forEach((slug) =>
-      tagsWrap.appendChild(creerPastilleTag(slug, tagsMap))
+      tagsWrap.appendChild(creerPastilleTag(slug, tagsMap)),
     );
     zone.appendChild(tagsWrap);
   }
