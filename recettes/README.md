@@ -35,10 +35,16 @@ l'application `recettes/index.html`.
   "id": "gratin-de-courgettes",
   "titre": "Gratin de courgettes",
   "photo": "images/gratin-courgettes.png",
+  "lien": null,
   "tags": ["plat", "vegetarien", "ete"],
   "ingredients": [
     { "quantite": 4, "unite": "pièce", "nom": "courgette" },
-    { "quantite": 20, "unite": "cl", "nom": "crème fraîche" }
+    {
+      "quantite": 20,
+      "unite": "cl",
+      "nom": "crème fraîche",
+      "commentaire": "allégée"
+    }
   ],
   "etapes": [
     "Coupez les courgettes en rondelles.",
@@ -54,8 +60,10 @@ Règles importantes :
 - **`photo`** : chemin d'une image du dossier `images/` (ex. `images/mon-plat.png`)
   ou une URL complète `https://…`. Pour ajouter une photo, glissez le fichier
   dans `recettes/images/` sur GitHub puis indiquez son nom ici.
+- **`lien`** : URL de la recette originelle, ou `null` si non renseigné.
 - **`tags`** : uniquement des `slug` présents dans `tags.json` (voir plus bas).
-- **`ingredients`** : chaque ligne = `quantite` + `unite` + `nom`.
+- **`ingredients`** : chaque ligne = `quantite` + `unite` + `nom` (+ `commentaire` optionnel).
+- **`commentaire`** (optionnel) : précision affichée après l'ingrédient (ex. `compote` + `sans sucres ajoutés`) sans impacter le filtrage par ingrédient.
 - **`etapes`** : une phrase par étape (la numérotation est automatique).
 - N'oubliez pas la **virgule** entre deux recettes, et vérifiez que le JSON reste
   valide (pas de virgule après le dernier élément).

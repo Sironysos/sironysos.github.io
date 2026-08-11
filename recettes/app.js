@@ -116,7 +116,7 @@ function validerRecettes(donnees, tagsMap) {
           .map((t) => normaliser(t).replace(/\s+/g, "-"))
       : [];
 
-    // Ingrédients : objets { quantite, unite, nom } ; nom obligatoire.
+    // Ingrédients : objets { quantite, unite, nom, commentaire? } ; nom obligatoire.
     const ingredients = Array.isArray(r.ingredients)
       ? r.ingredients
           .filter((i) => i && typeof i === "object" && estTexteNonVide(i.nom))
@@ -125,6 +125,9 @@ function validerRecettes(donnees, tagsMap) {
               i.quantite == null || i.quantite === "" ? "" : String(i.quantite),
             unite: estTexteNonVide(i.unite) ? i.unite.trim() : "",
             nom: i.nom.trim(),
+            commentaire: estTexteNonVide(i.commentaire)
+              ? i.commentaire.trim()
+              : "",
           }))
       : [];
 
@@ -137,6 +140,7 @@ function validerRecettes(donnees, tagsMap) {
       id: id,
       titre: r.titre.trim(),
       photo: urlImageSure(r.photo),
+      lien: estTexteNonVide(r.lien) ? urlImageSure(r.lien) || null : null,
       tags: tags,
       ingredients: ingredients,
       etapes: etapes,
@@ -596,6 +600,17 @@ function rendreDetail(zone, recette, tagsMap) {
   h1.textContent = recette.titre;
   zone.appendChild(h1);
 
+  if (recette.lien) {
+    const pSource = document.createElement("p");
+    const aSource = document.createElement("a");
+    aSource.href = recette.lien;
+    aSource.target = "_blank";
+    aSource.rel = "noopener noreferrer";
+    aSource.textContent = "Voir la recette originelle";
+    pSource.appendChild(aSource);
+    zone.appendChild(pSource);
+  }
+
   if (recette.tags.length) {
     const tagsWrap = document.createElement("div");
     tagsWrap.className = "card-tags";
@@ -621,7 +636,8 @@ function rendreDetail(zone, recette, tagsMap) {
       qty.className = "ingredient-qty";
       qty.textContent = [i.quantite, i.unite].filter((x) => x).join(" ");
       const nom = document.createElement("span");
-      nom.textContent = i.nom;
+      const detail = i.commentaire ? " " + i.commentaire : "";
+      nom.textContent = i.nom + detail;
       if (qty.textContent) li.appendChild(qty);
       li.appendChild(nom);
       ul.appendChild(li);
