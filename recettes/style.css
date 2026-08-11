@@ -210,6 +210,83 @@ img {
   color: var(--text);
 }
 
+.text-input {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  font: inherit;
+  color: var(--text);
+}
+
+.ingredient-filter {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.ingredient-selected {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.ingredient-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(47, 107, 79, 0.2);
+  background: rgba(47, 107, 79, 0.08);
+  color: var(--primary-dark);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.ingredient-chip:hover {
+  border-color: var(--primary);
+}
+
+.ingredient-chip-remove {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.ingredient-suggestions {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.ingredient-suggestion {
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.ingredient-suggestion:hover,
+.ingredient-suggestion:focus-visible {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.ingredient-suggestion.empty {
+  color: var(--muted);
+  cursor: default;
+}
+
+.ingredient-suggestion.empty:hover,
+.ingredient-suggestion.empty:focus-visible {
+  border-color: var(--border);
+}
+
 .season-row {
   display: flex;
   align-items: flex-start;

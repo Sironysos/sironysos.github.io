@@ -64,9 +64,29 @@
 
           <div class="filter-group">
             <label class="filter-label" for="filtre-ingredient">Ingrédient</label>
-            <select class="select-input" id="filtre-ingredient">
-              <option value="">Tous les ingrédients</option>
-            </select>
+            <div class="ingredient-filter" id="ingredient-filter">
+              <input
+                class="text-input"
+                type="text"
+                id="filtre-ingredient"
+                autocomplete="off"
+                placeholder="Tapez un ingrédient"
+                aria-autocomplete="list"
+                aria-controls="ingredient-suggestions"
+                aria-expanded="false"
+              />
+              <div
+                class="ingredient-selected"
+                id="ingredient-selected"
+                aria-label="Ingrédients sélectionnés"
+              ></div>
+              <div
+                class="ingredient-suggestions"
+                id="ingredient-suggestions"
+                role="listbox"
+                aria-label="Suggestions d'ingrédients"
+              ></div>
+            </div>
           </div>
 
           <div class="filter-group">

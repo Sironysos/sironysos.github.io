@@ -19,6 +19,32 @@
         "L'idée est d'ajouter le lait en 3 ou 4 fois, pour faire épaissir entre chaque ajout, sur feu moyen, en remuant bien pour éviter les grumeaux.",
         "Au dernier ajout, ne faites pas trop épaissir la crème, elle doit laisser des traces de fouet mais pas être trop épaisse, sinon le gratin ne sera pas crémeux mais plutôt plâtreux! Ajoutez le sel et la muscade et contrôlez l'assaisonnement. Au besoin rectifiez."
       ]
+    },
+    {
+      "id": "crepes",
+      "titre": "Crêpes",
+      "photo": "images/crepes.webp",
+      "tags": ["dessert"],
+      "ingredients": [
+        { "quantite": 350, "unite": "g", "nom": "farine" },
+        { "quantite": 50, "unite": "g", "nom": "maïzena" },
+        { "quantite": 2, "unite": "cuillères à soupe", "nom": "huile" },
+        { "quantite": 45, "unite": "cL", "nom": "lait végétal" },
+        { "quantite": 1, "unite": "cL", "nom": "eau" },
+        { "quantite": 1, "unite": "cuillère à café", "nom": "sel" },
+        { "quantite": 2, "unite": "cuillère à café", "nom": "sucre" }
+      ],
+      "etapes": [
+        "Dans un saladier, verser la farine et la fécule avec le sel et le sucre. Mélanger.",
+        "Faire un puits et verser l’huile. Mélanger légèrement.",
+        "Ajouter le lait petit à petit, en mélangeant en même temps ou entre chaque ajout. Ceci évite que la pâte fasse des grumeaux (ce qui arrive si on verse le lait d’un coup). Si des grumeaux se forment, passer un coup de mixeur.",
+        "Enfin, ajouter l’eau et remuer jusqu’à obtenir une pâte bien lisse.",
+        "Laisser reposer environ 2 h à température ambiante (moins longtemps si on est pressé !). Ce temps de pause permet aux crêpes d’être bien souples et élastiques et non cassantes.",
+        "Mélanger à nouveau. La pâte a dû épaissir. Vous pouvez alors rajouter un peu d’eau jusqu’à ce qu’elle redevienne aussi fluide qu’avant le temps de repos.",
+        "Répartir quelques gouttes d’huile sur la surface d’une poêle et faire chauffer. Lorsque la poêle est bien chaude, verser une louche de pâte et étaler sur toute la surface. Cuire 2 à 3 minutes environ.",
+        "Retourner la crêpe et cuire 1 minute de l’autre côté.",
+        "Recommencer jusqu’à épuisement de la pâte."
+      ]
     }
   ]
 }

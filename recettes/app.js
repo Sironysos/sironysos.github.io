@@ -208,7 +208,7 @@ async function initListe() {
 
   const etat = {
     tagsSelectionnes: new Set(),
-    ingredient: "",
+    ingredientsSelectionnes: new Set(),
     saisonSeulement: false,
   };
 
@@ -293,34 +293,147 @@ async function initListe() {
       });
 
     // Ingrédients : liste unique (affichage d'origine, valeur normalisée).
-    const parNorme = new Map();
+    const ingredientsParNorme = new Map();
     recettes.forEach((r) =>
       r.ingredients.forEach((i) => {
         const cle = normaliser(i.nom);
-        if (cle && !parNorme.has(cle)) parNorme.set(cle, i.nom);
+        if (cle && !ingredientsParNorme.has(cle)) {
+          ingredientsParNorme.set(cle, i.nom);
+        }
       })
     );
 
-    const select = document.getElementById("filtre-ingredient");
-    select.textContent = "";
-    const optDefaut = document.createElement("option");
-    optDefaut.value = "";
-    optDefaut.textContent = "Tous les ingrédients";
-    select.appendChild(optDefaut);
+    const triIngredients = Array.from(ingredientsParNorme.entries()).sort((a, b) =>
+      a[1].localeCompare(b[1], "fr")
+    );
 
-    Array.from(parNorme.keys())
-      .sort((a, b) => parNorme.get(a).localeCompare(parNorme.get(b), "fr"))
-      .forEach((cle) => {
-        const opt = document.createElement("option");
-        opt.value = cle;
-        opt.textContent = parNorme.get(cle);
-        select.appendChild(opt);
+    const inputIngredient = document.getElementById("filtre-ingredient");
+    const zoneIngredientsSelectionnes = document.getElementById("ingredient-selected");
+    const zoneSuggestions = document.getElementById("ingredient-suggestions");
+
+    function fermerSuggestions() {
+      zoneSuggestions.textContent = "";
+      inputIngredient.setAttribute("aria-expanded", "false");
+    }
+
+    function afficherIngredientsSelectionnes() {
+      zoneIngredientsSelectionnes.textContent = "";
+
+      Array.from(etat.ingredientsSelectionnes)
+        .sort((a, b) =>
+          (ingredientsParNorme.get(a) || a).localeCompare(
+            ingredientsParNorme.get(b) || b,
+            "fr"
+          )
+        )
+        .forEach((cle) => {
+          const chip = document.createElement("button");
+          chip.type = "button";
+          chip.className = "ingredient-chip";
+          chip.setAttribute(
+            "aria-label",
+            "Retirer l'ingrédient " + (ingredientsParNorme.get(cle) || cle)
+          );
+
+          const libelle = document.createElement("span");
+          libelle.textContent = ingredientsParNorme.get(cle) || cle;
+          chip.appendChild(libelle);
+
+          const retirer = document.createElement("span");
+          retirer.className = "ingredient-chip-remove";
+          retirer.setAttribute("aria-hidden", "true");
+          retirer.textContent = "×";
+          chip.appendChild(retirer);
+
+          chip.addEventListener("click", () => {
+            etat.ingredientsSelectionnes.delete(cle);
+            afficherIngredientsSelectionnes();
+            afficherSuggestions(inputIngredient.value);
+            appliquerFiltres();
+          });
+
+          zoneIngredientsSelectionnes.appendChild(chip);
+        });
+    }
+
+    function ajouterIngredient(cle) {
+      if (!cle || etat.ingredientsSelectionnes.has(cle)) return;
+      etat.ingredientsSelectionnes.add(cle);
+      inputIngredient.value = "";
+      afficherIngredientsSelectionnes();
+      fermerSuggestions();
+      appliquerFiltres();
+    }
+
+    function afficherSuggestions(recherche) {
+      const terme = normaliser(recherche);
+      zoneSuggestions.textContent = "";
+
+      if (terme === "") {
+        fermerSuggestions();
+        return;
+      }
+
+      const correspondances = triIngredients
+        .filter(([cle, libelle]) => {
+          if (etat.ingredientsSelectionnes.has(cle)) return false;
+          return normaliser(libelle).startsWith(terme);
+        })
+        .slice(0, 8);
+
+      if (correspondances.length === 0) {
+        inputIngredient.setAttribute("aria-expanded", "true");
+        const vide = document.createElement("div");
+        vide.className = "ingredient-suggestion empty";
+        vide.textContent = "Aucune suggestion";
+        zoneSuggestions.appendChild(vide);
+        return;
+      }
+
+      correspondances.forEach(([cle, libelle]) => {
+        const bouton = document.createElement("button");
+        bouton.type = "button";
+        bouton.className = "ingredient-suggestion";
+        bouton.setAttribute("role", "option");
+        bouton.setAttribute("aria-selected", "false");
+        bouton.textContent = libelle;
+        bouton.addEventListener("click", () => ajouterIngredient(cle));
+        zoneSuggestions.appendChild(bouton);
       });
 
-    select.addEventListener("change", () => {
-      etat.ingredient = select.value;
-      appliquerFiltres();
+      inputIngredient.setAttribute("aria-expanded", "true");
+    }
+
+    inputIngredient.addEventListener("input", () => {
+      afficherSuggestions(inputIngredient.value);
     });
+
+    inputIngredient.addEventListener("focus", () => {
+      afficherSuggestions(inputIngredient.value);
+    });
+
+    inputIngredient.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        const premier = zoneSuggestions.querySelector(
+          ".ingredient-suggestion:not(.empty)"
+        );
+        if (premier) {
+          event.preventDefault();
+          premier.click();
+        }
+      }
+      if (event.key === "Escape") {
+        fermerSuggestions();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest("#ingredient-filter")) {
+        fermerSuggestions();
+      }
+    });
+
+    afficherIngredientsSelectionnes();
 
     // Saison du mois courant.
     const noms = [
@@ -339,9 +452,11 @@ async function initListe() {
     // Réinitialisation.
     document.getElementById("reset").addEventListener("click", () => {
       etat.tagsSelectionnes.clear();
-      etat.ingredient = "";
+      etat.ingredientsSelectionnes.clear();
       etat.saisonSeulement = false;
-      select.value = "";
+      inputIngredient.value = "";
+      fermerSuggestions();
+      afficherIngredientsSelectionnes();
       caseSaison.checked = false;
       conteneurTags
         .querySelectorAll(".chip")
@@ -366,11 +481,9 @@ async function initListe() {
       for (const slug of etat.tagsSelectionnes) {
         if (!r.tags.includes(slug)) return false;
       }
-      // Ingrédient précis.
-      if (etat.ingredient) {
-        const present = r.ingredients.some(
-          (i) => normaliser(i.nom) === etat.ingredient
-        );
+      // Ingrédients sélectionnés : la recette doit tous les contenir.
+      for (const ingredient of etat.ingredientsSelectionnes) {
+        const present = r.ingredients.some((i) => normaliser(i.nom) === ingredient);
         if (!present) return false;
       }
       // Saison.
