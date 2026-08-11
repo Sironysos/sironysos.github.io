@@ -7,7 +7,7 @@
       name="description"
       content="Blog de recettes de cuisine : parcourez les recettes par tag, par ingrédient et par saison."
     />
-    <title>Recettes — Blog de cuisine</title>
+    <title>Recettes - Blog de cuisine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -42,7 +42,6 @@
         </div>
 
         <div class="layout">
-          <!-- Colonne de filtres -->
           <aside class="filters" id="filters" aria-label="Filtres de recherche">
             <h2>Filtres</h2>
 
@@ -63,7 +62,7 @@
                   type="text"
                   id="filtre-ingredient"
                   autocomplete="off"
-                  placeholder="Tapez un ingrédient"
+                  placeholder="Tapez un ingredient"
                   aria-autocomplete="list"
                   aria-controls="ingredient-suggestions"
                   aria-expanded="false"
@@ -95,7 +94,7 @@
                 </label>
               </div>
               <p class="season-hint">
-                Affiche les recettes ayant au moins un ingrédient de saison ce
+                Affiche les recettes ayant au moins un ingredient de saison ce
                 mois-ci.
               </p>
             </div>
@@ -105,7 +104,6 @@
             </button>
           </aside>
 
-          <!-- Grille de résultats -->
           <section class="results" aria-label="Resultats des recettes">
             <div class="results-head">
               <h2>Recettes</h2>
@@ -116,7 +114,7 @@
               ></span>
             </div>
 
-            <div class="state" id="etat" role="status">Chargement…</div>
+            <div class="state" id="etat" role="status">Chargement...</div>
 
             <ul class="grid" id="grid" aria-label="Liste des recettes"></ul>
           </section>

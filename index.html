@@ -1,36 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!doctype html>
+<html lang="fr">
+  <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9WZW4VLKC"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-R9WZW4VLKC"
+    ></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    gtag('config', 'G-R9WZW4VLKC');
+      gtag("config", "G-R9WZW4VLKC");
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simple HTML page">
-    <title>Sironysos' website</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Sironysos' website</h1>
-    </header>
-    <main>
-        <div class="main-content">
-            <p>Welcome to my website! This is a simple HTML page.</p>
-            <p>Here is a link to my <a href="#resume">CV</a>.</p>
-            <p>Here are some daily <a href="games.html">games</a> I like to play.</p>
-            <p>Here are some vegan <a href="recettes/index.html">recipes</a>.</p>
-            <section class="recettes-cta" aria-labelledby="titre-recettes">
-        </div>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Site personnel de Sironysos avec jeux quotidiens et recettes vegan."
+    />
+    <title>Sironysos - Accueil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    data-layout-title="Sironysos"
+    data-layout-brand-href="index.html"
+    data-layout-footer-name="Sironysos"
+  >
+    <div data-layout-header></div>
+    <main class="site-main" id="contenu-principal">
+      <div class="main-content">
+        <p>Bienvenue sur mon site personnel.</p>
+        <p>
+          Tu peux y retrouver mes jeux quotidiens préférés et mes recettes
+          vegan.
+        </p>
+
+        <nav class="quick-links" aria-label="Navigation principale">
+          <a class="quick-link-card" href="games.html">
+            <h2>Jeux quotidiens</h2>
+            <p>Une sélection de jeux à découvrir chaque jour.</p>
+          </a>
+          <a class="quick-link-card" href="recettes/recettes.html">
+            <h2>Recettes vegan</h2>
+            <p>
+              Des idées de recettes filtrables par tags, ingrédients et saison.
+            </p>
+          </a>
+        </nav>
+      </div>
     </main>
-    <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear());</script> Sironysos</p>
-    </footer>
-</body>
+    <div data-layout-footer></div>
+    <script src="layout.js"></script>
+    <script src="theme.js"></script>
+  </body>
 </html>
