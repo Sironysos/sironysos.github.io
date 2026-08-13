@@ -129,13 +129,29 @@ input:focus-visible {
 }
 
 .back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   text-decoration: none;
   font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--brand-strong);
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--brand) 35%, transparent);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    box-shadow 0.15s;
 }
 
 .back-link:hover,
 .back-link:focus-visible {
-  text-decoration: underline;
+  background: color-mix(in srgb, var(--brand) 22%, transparent);
+  border-color: color-mix(in srgb, var(--brand) 55%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 15%, transparent);
+  text-decoration: none;
 }
 
 .theme-toggle {

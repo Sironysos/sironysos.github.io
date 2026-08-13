@@ -10,7 +10,12 @@
       "ingredients": [
         { "quantite": 70, "unite": "g", "nom": "margarine" },
         { "quantite": 70, "unite": "g", "nom": "farine" },
-        { "quantite": 600, "unite": "g", "nom": "lait végétal non sucré" },
+        {
+          "quantite": 600,
+          "unite": "g",
+          "nom": "lait végétal",
+          "commentaire": "non sucré"
+        },
         { "quantite": 1, "unite": "pincée", "nom": "muscade" },
         { "quantite": 1, "unite": "cuillère à café", "nom": "sel" }
       ],
@@ -101,14 +106,20 @@
           "nom": "cerises (nettoyées, équeutées, dénoyautées et coupées en deux)"
         },
         { "quantite": 100, "unite": "g", "nom": "farine" },
-        { "quantite": 60, "unite": "g", "nom": "fécule de maïs" },
-        { "quantite": 100, "unite": "g", "nom": "sucre blond en poudre" },
+        { "quantite": 60, "unite": "g", "nom": "maïzena" },
+        {
+          "quantite": 100,
+          "unite": "g",
+          "nom": "sucre",
+          "commentaire": "blond en poudre"
+        },
         { "quantite": 45, "unite": "g", "nom": "poudre d’amandes" },
         { "quantite": 1, "unite": "pincée", "nom": "sel" },
         {
           "quantite": 30,
           "unite": "g",
-          "nom": "beurre végétal ou margarine fondu"
+          "nom": "margarine",
+          "commentaire": "fondue"
         },
         { "quantite": 20, "unite": "cl", "nom": "crème d’amande" },
         { "quantite": 25, "unite": "cl", "nom": "crème d’avoine" }
@@ -137,7 +148,12 @@
           "nom": "margarine",
           "commentaire": "pour pâtisserie (à 80% de MG)"
         },
-        { "quantite": 100, "unite": "g", "nom": "sucre brun" },
+        {
+          "quantite": 100,
+          "unite": "g",
+          "nom": "sucre",
+          "commentaire": "brun"
+        },
         {
           "quantite": 50,
           "unite": "g",
