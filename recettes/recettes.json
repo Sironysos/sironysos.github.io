@@ -1,0 +1,236 @@
+{
+  "_aide": "Liste des recettes. Chaque recette : id (unique), titre, photo (chemin ou URL), lien (URL ou null), tags (slugs présents dans tags.json), ingredients (quantite/unite/nom + commentaire optionnel), etapes (texte). Voir le README pour ajouter/modifier/supprimer.",
+  "recettes": [
+    {
+      "id": "bechamel",
+      "titre": "Sauce béchamel",
+      "photo": "images/bechamel.jpg",
+      "lien": "https://deliacious.com/2020/01/gratin-de-chou-fleur-vegan.html",
+      "tags": ["sauce"],
+      "ingredients": [
+        { "quantite": 70, "unite": "g", "nom": "margarine" },
+        { "quantite": 70, "unite": "g", "nom": "farine" },
+        {
+          "quantite": 600,
+          "unite": "g",
+          "nom": "lait végétal",
+          "commentaire": "non sucré"
+        },
+        { "quantite": 1, "unite": "pincée", "nom": "muscade" },
+        { "quantite": 1, "unite": "cuillère à café", "nom": "sel" }
+      ],
+      "etapes": [
+        "Dans une casserole, faites fondre la margarine, puis ajoutez par dessus la farine.",
+        "Remuez au fouet puis, une fois le mélange homogène (ça fait une sorte de pâte), ajoutez une petite portion du lait, que vous aurez pris soin de peser en amont.",
+        "L'idée est d'ajouter le lait en 3 ou 4 fois, pour faire épaissir entre chaque ajout, sur feu moyen, en remuant bien pour éviter les grumeaux.",
+        "Au dernier ajout, ne faites pas trop épaissir la crème, elle doit laisser des traces de fouet mais pas être trop épaisse, sinon le gratin ne sera pas crémeux mais plutôt plâtreux! Ajoutez le sel et la muscade et contrôlez l'assaisonnement. Au besoin rectifiez."
+      ]
+    },
+    {
+      "id": "crepes",
+      "titre": "Crêpes",
+      "photo": "images/crepes.webp",
+      "lien": "https://vegan-pratique.fr/recettes/crepes-simplissimes/",
+      "tags": ["dessert"],
+      "ingredients": [
+        { "quantite": 350, "unite": "g", "nom": "farine" },
+        { "quantite": 50, "unite": "g", "nom": "maïzena" },
+        { "quantite": 2, "unite": "cuillères à soupe", "nom": "huile" },
+        { "quantite": 45, "unite": "cL", "nom": "lait végétal" },
+        { "quantite": 1, "unite": "cL", "nom": "eau" },
+        { "quantite": 1, "unite": "cuillère à café", "nom": "sel" },
+        { "quantite": 2, "unite": "cuillère à café", "nom": "sucre" }
+      ],
+      "etapes": [
+        "Dans un saladier, verser la farine et la fécule avec le sel et le sucre. Mélanger.",
+        "Faire un puits et verser l’huile. Mélanger légèrement.",
+        "Ajouter le lait petit à petit, en mélangeant en même temps ou entre chaque ajout. Ceci évite que la pâte fasse des grumeaux (ce qui arrive si on verse le lait d’un coup). Si des grumeaux se forment, passer un coup de mixeur.",
+        "Enfin, ajouter l’eau et remuer jusqu’à obtenir une pâte bien lisse.",
+        "Laisser reposer environ 2 h à température ambiante (moins longtemps si on est pressé !). Ce temps de pause permet aux crêpes d’être bien souples et élastiques et non cassantes.",
+        "Mélanger à nouveau. La pâte a dû épaissir. Vous pouvez alors rajouter un peu d’eau jusqu’à ce qu’elle redevienne aussi fluide qu’avant le temps de repos.",
+        "Répartir quelques gouttes d’huile sur la surface d’une poêle et faire chauffer. Lorsque la poêle est bien chaude, verser une louche de pâte et étaler sur toute la surface. Cuire 2 à 3 minutes environ.",
+        "Retourner la crêpe et cuire 1 minute de l’autre côté.",
+        "Recommencer jusqu’à épuisement de la pâte."
+      ]
+    },
+    {
+      "id": "tourte-poireau-patate-douce",
+      "titre": "Tourte poireau, patate douce et gravy",
+      "photo": "images/tourte-sauce-gravy.jpg",
+      "lien": "https://vegan-pratique.fr/recettes/tourte-de-patate-douce-sauce-gravy/",
+      "tags": ["plat", "hiver"],
+      "ingredients": [
+        { "quantite": 1, "unite": "", "nom": "poireau" },
+        { "quantite": 2, "unite": "", "nom": "oignons" },
+        { "quantite": 2, "unite": "càs", "nom": "sucre" },
+        { "quantite": 500, "unite": "g", "nom": "patate douce" },
+        {
+          "quantite": 20,
+          "unite": "cl",
+          "nom": "sauce tomate ou crème végétale"
+        },
+        { "quantite": 2, "unite": "", "nom": "pâtes feuilletée" },
+        { "quantite": 2, "unite": "càs", "nom": "moutarde" },
+        { "quantite": 500, "unite": "ml", "nom": "bouillon de légumes" },
+        { "quantite": 3, "unite": "càs", "nom": "levure maltée" },
+        { "quantite": 2, "unite": "càs", "nom": "farine" },
+        { "quantite": 3, "unite": "càs", "nom": "sauce soja" },
+        { "quantite": "", "unite": "", "nom": "sel" },
+        { "quantite": "", "unite": "", "nom": "poivre" },
+        { "quantite": 1, "unite": "càc", "nom": "miso noir" },
+        { "quantite": "", "unite": "", "nom": "tofu fumé" },
+        { "quantite": "", "unite": "", "nom": "marrons cuits" }
+      ],
+      "etapes": [
+        "Émincer le poireau et les oignons. Dans une sauteuse, les faire revenir dans un peu d’huile avec le sucre jusqu’à légère caramélisation.",
+        "À l’aide d’une mandoline ou à la main, couper de fines rondelles de patate douce.",
+        "Dans un grand saladier, mélanger les légumes ainsi que la sauce tomate ou la crème, puis assaisonner de sel et de poivre.",
+        "Dans un moule à tarte à bord épais, foncer la première pâte feuilletée et napper le fond de moutarde.",
+        "Placer le mélange de légumes, fermer la tourte avec la deuxième pâte feuilletée, sceller les bords et faire une cheminée au centre.",
+        "Décorer avec les chutes de pâte feuilletée collées avec de l’eau, puis dorer à l’aide d’un peu de crème ou de lait végétal.",
+        "Cuire 20 min à 200 °C, puis encore 40 min à 170 °C.",
+        "Pour la gravy : dans une casserole, mélanger tous les ingrédients puis porter à ébullition en remuant constamment au fouet pendant 10 à 15 minutes.",
+        "La sauce va épaissir doucement. Servir chaud en versant la gravy sur la tourte."
+      ]
+    },
+    {
+      "id": "clafoutis-cerises",
+      "titre": "Clafoutis aux cerises",
+      "photo": "images/clafoutis-aux-cerises.jpg",
+      "lien": "https://vegan-pratique.fr/recettes/clafoutis-aux-cerises/",
+      "tags": ["dessert", "ete"],
+      "ingredients": [
+        {
+          "quantite": 500,
+          "unite": "g",
+          "nom": "cerises (nettoyées, équeutées, dénoyautées et coupées en deux)"
+        },
+        { "quantite": 100, "unite": "g", "nom": "farine" },
+        { "quantite": 60, "unite": "g", "nom": "maïzena" },
+        {
+          "quantite": 100,
+          "unite": "g",
+          "nom": "sucre",
+          "commentaire": "blond en poudre"
+        },
+        { "quantite": 45, "unite": "g", "nom": "poudre d’amandes" },
+        { "quantite": 1, "unite": "pincée", "nom": "sel" },
+        {
+          "quantite": 30,
+          "unite": "g",
+          "nom": "margarine",
+          "commentaire": "fondue"
+        },
+        { "quantite": 20, "unite": "cl", "nom": "crème d’amande" },
+        { "quantite": 25, "unite": "cl", "nom": "crème d’avoine" }
+      ],
+      "etapes": [
+        "Pour un moule de 24 cm de diamètre.",
+        "Dans un saladier, mélanger la farine avec la fécule, le sucre, la poudre d’amandes et le sel.",
+        "Ajouter le beurre végétal fondu et les crèmes d’amande et d’avoine tiédies.",
+        "Mélanger le tout au fouet jusqu’à obtenir une pâte parfaitement homogène.",
+        "Préchauffer le four 10 min à 220 °C.",
+        "Placer les moitiés de cerises au fond du moule à manqué, puis verser la préparation par-dessus.",
+        "Cuire le clafoutis 30 min à 220 °C (ici 25 min + 5 min sous le grill, à adapter selon votre four). Surveiller la cuisson.",
+        "Laisser refroidir le clafoutis avant de l’entreposer quelques heures au réfrigérateur."
+      ]
+    },
+    {
+      "id": "cookies-compote-chocolat",
+      "titre": "Cookies à la compote et pépites de chocolat",
+      "photo": "images/cookies-pepites-chocolat.jpg",
+      "lien": "https://vegan-pratique.fr/recettes/cookies-aux-pepites-de-chocolat/",
+      "tags": ["dessert"],
+      "ingredients": [
+        {
+          "quantite": 100,
+          "unite": "g",
+          "nom": "margarine",
+          "commentaire": "pour pâtisserie (à 80% de MG)"
+        },
+        {
+          "quantite": 100,
+          "unite": "g",
+          "nom": "sucre",
+          "commentaire": "brun"
+        },
+        {
+          "quantite": 50,
+          "unite": "g",
+          "nom": "sucre",
+          "commentaire": " blond ou blanc"
+        },
+        {
+          "quantite": 70,
+          "unite": "g",
+          "nom": "compote",
+          "commentaire": "sans sucres ajoutés"
+        },
+        {
+          "quantite": 180,
+          "unite": "g",
+          "nom": "farine",
+          "commentaire": "T55"
+        },
+        {
+          "quantite": 0.5,
+          "unite": "cuillère à café",
+          "nom": "levure chimique"
+        },
+        { "quantite": 3, "unite": "pincées", "nom": "sel" },
+        {
+          "quantite": 100,
+          "unite": "g",
+          "nom": "pépites de chocolat"
+        }
+      ],
+      "etapes": [
+        "Fouetter la margarine avec les sucres jusqu’à ce que le mélange soit homogène.",
+        "Ajouter la compote tout en fouettant.",
+        "Incorporer la farine et la levure. Mélanger à la spatule sans trop travailler la pâte.",
+        "Ajouter le sel et les pépites de chocolat, puis mélanger.",
+        "Mettre la pâte à cookies au réfrigérateur pendant au minimum 30 minutes.",
+        "Préchauffer le four à 180 °C en chaleur tournante.",
+        "À l’aide d’une cuillère à glace, prélever la pâte et déposer des boules sur une plaque recouverte de papier cuisson en laissant de l’espace entre chaque cookie.",
+        "Enfourner pour 13 à 14 minutes.",
+        "Laisser refroidir sur une grille à la sortie du four."
+      ]
+    },
+    {
+      "id": "glace-chartreuse",
+      "titre": "Glace à la Chartreuse",
+      "photo": "images/glace-chartreuse.jpg",
+      "lien": "https://l-herboriste.com/comment-faire-une-creme-glacee-vegane-a-la-sorbetiere/",
+      "tags": ["dessert", "glace"],
+      "ingredients": [
+        {
+          "quantite": 20,
+          "unite": "g",
+          "nom": "maïzena"
+        },
+        {
+          "quantite": 450,
+          "unite": "g",
+          "nom": "lait de riz"
+        },
+        {
+          "quantite": 15,
+          "unite": "cL",
+          "nom": "Chartreuse"
+        }
+      ],
+      "etapes": [
+        "Dans une casserole, mettre la fécule.",
+        "Ajoutez le lait petit à petit en fouettant pour l'incorporer sans faire de grumeaux",
+        "Chauffez la casserole à feu moyen-vif en remuant et en râclant bien les bords avec une maryse, jusqu'à ce que le liquide épaississe légèrement et se mette à bouillir.",
+        "Sortez du feu.",
+        "Dans une autre casserole, faire chauffer puis flamber la Chartreuse 5cL par 5cL afin d'obtenir un sirop.",
+        "Incorporez l'alcool dans le mélange, 5cL par 5cL.",
+        "Laissez refroidir entièrement au frigo.",
+        "Préparez votre sorbetière selon les instructions données par le manuel, mettez-la en route et versez votre préparation dans le bol de votre sorbetière.",
+        "Laissez turbiner entre 20 et 30 minutes, jusqu'à ce que la crème glacée soit bien prise et épaisse et/ou jusqu'à ce que votre sorbetière indique qu'elle est prête.",
+        "Transvasez dans un tupperware hermétique. Vous pouvez en manger tout de suite (elle aura une texture de glace à l'italienne), ou la conserver au congélateur pendant 1 à 2 mois. Sortez une bonne trentaine de minutes le tupperware du congélateur avant de servir pour que la glace ramollisse."
+      ]
+    }
+  ]
+}

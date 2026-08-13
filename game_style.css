@@ -1,150 +1,83 @@
-body {
-    font-family: 'Open Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #eef1f4;
-    color: #333;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-header {
-    background: #fdf8eb;
-    color: #333;
-    text-align: center;
-    padding: 2.5rem 0;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3em;
-    color: #4a382f;
-    letter-spacing: -0.5px;
-}
-
-main {
-    flex-grow: 1;
-    background-color: white;
-    padding: 3rem 0;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-    border-radius: 12pt;
-    padding: 2rem;
-    margin: 2rem 10%;
-    text-align: center;
-}
-
-.main-content {
-    text-align: center;
-}
-
-a {
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-a:hover {
-    color: #0056b3;
-    text-decoration: underline;
-}
-
-footer {
-    background: #2c3e50;
-    color: #ecf0f1;
-    text-align: center;
-    padding: 1.8rem 0;
-    margin-top: auto;
-    font-size: 0.9em;
-}
-
 .game-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 0;
 }
 
 .card-button {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 25px;
-    text-align: left;
-    text-decoration: none;
-    color: #333;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 280px   ;
+  background-color: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: left;
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 260px;
 }
 
 .card-button:hover,
-.card-button:focus {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-    background-color: #fff7d6;
-    text-decoration: none;
-    outline: none;
+.card-button:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  background-color: color-mix(in srgb, var(--surface-soft) 70%, var(--surface));
+  text-decoration: none;
+  border-color: var(--brand);
 }
 
 .card-button h2 {
-    margin-top: 0;
-    margin-bottom: 0.6em;
-    color: #4a382f;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.6em;
-    line-height: 1.3;
+  margin-top: 0;
+  margin-bottom: 0.6em;
+  color: var(--brand-strong);
+  font-size: 1.35rem;
+  line-height: 1.3;
 }
 
 .card-button p {
-    margin-bottom: 0;
-    color: #555;
-    font-size: 1em;
-    text-align: justify;
-    flex-grow: 1;
-    padding: 25px 25px 20px;
+  margin-bottom: 0;
+  color: var(--text-muted);
+  font-size: 1em;
+  text-align: left;
 }
 
 .card-logo {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    margin-bottom: 15px;
-    display: block;
-    margin-left: auto;
-    margin-right: 0;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 8px;
 }
 
 .card-header h2 {
-    margin: 0;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.2em;
-    }
-    .game-cards {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 0;
-    }
-    .card-button {
-        flex-basis: auto;
-        min-height: auto;
-        padding: 20px;
-    }
+  .game-cards {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding: 0;
+  }
+  .card-button {
+    min-height: auto;
+    padding: 0.9rem;
+  }
 }

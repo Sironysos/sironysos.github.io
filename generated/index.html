@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mon site personnel." />
+    <title>Accueil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f7f6f2;
+        --surface: #ffffff;
+        --text: #23241f;
+        --muted: #6b6f66;
+        --primary: #2f6b4f;
+        --primary-dark: #234f3b;
+        --border: #e4e2da;
+      }
+      * { box-sizing: border-box; }
+      html { background: var(--bg); }
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, sans-serif;
+        color: var(--text);
+        line-height: 1.55;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 4rem 1.25rem;
+      }
+      h1 {
+        font-family: "Fraunces", Georgia, serif;
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        margin: 0 0 0.5rem;
+      }
+      p.intro { color: var(--muted); font-size: 1.1rem; margin: 0 0 2.5rem; }
+
+      /* ===================================================== */
+      /* Bloc à recopier dans VOTRE index.html : lien recettes  */
+      /* ===================================================== */
+      .recettes-cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--primary);
+        border-radius: 14px;
+        padding: 1.75rem;
+        box-shadow: 0 8px 24px rgba(35, 36, 31, 0.06);
+      }
+      .recettes-cta h2 {
+        font-family: "Fraunces", Georgia, serif;
+        margin: 0 0 0.35rem;
+        font-size: 1.4rem;
+      }
+      .recettes-cta p { margin: 0; color: var(--muted); }
+      .btn-recettes {
+        display: inline-block;
+        background: var(--primary);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.75rem 1.4rem;
+        border-radius: 999px;
+        white-space: nowrap;
+        transition: background 0.15s;
+      }
+      .btn-recettes:hover,
+      .btn-recettes:focus-visible {
+        background: var(--primary-dark);
+      }
+      .btn-recettes:focus-visible {
+        outline: 3px solid rgba(47, 107, 79, 0.4);
+        outline-offset: 2px;
+      }
+      /* ===================================================== */
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>Bienvenue</h1>
+      <p class="intro">Ceci est ma page d'accueil.</p>
+
+      <!-- >>> LIEN VERS L'APPLICATION DE RECETTES (à recopier chez vous) <<< -->
+      <section class="recettes-cta" aria-labelledby="titre-recettes">
+        <div>
+          <h2 id="titre-recettes">Mes recettes de cuisine</h2>
+          <p>Parcourez les recettes par tag, ingrédient et saison.</p>
+        </div>
+        <a class="btn-recettes" href="recettes/index.html">
+          Voir les recettes &rarr;
+        </a>
+      </section>
+      <!-- >>> FIN DU LIEN RECETTES <<< -->
+    </main>
+  </body>
+</html>
