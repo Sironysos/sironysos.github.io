@@ -236,19 +236,48 @@
       "id": "cookies_by_senbai",
       "titre": "Cookies pépites de chocolat",
       "photo": "images/cookies-simples.jpg",
-      "lien": "www.pickuplimes.com/recipe/the-best-chocolate-chip-cookies-1437",
+      "lien": "https://www.pickuplimes.com/recipe/the-best-chocolate-chip-cookies-1437",
       "tags": ["dessert", "cookies"],
       "ingredients": [
-        { "quantite": 115, "unite": "g", "nom": "beurre", "commentaire": "vegan testé avec violife ou flora" },
-        { "quantite": 165, "unite": "g", "nom": "sucre", "commentaire": "cassonade" },
-        { "quantite": 50, "unite": "g", "nom": "sucre", "commentaire": "blond ou blanc"},
-        { "quantite": 60, "unite": "ml", "nom": "lait végétal", "commentaire": "non sucré" },
+        {
+          "quantite": 115,
+          "unite": "g",
+          "nom": "beurre",
+          "commentaire": "vegan testé avec violife ou flora"
+        },
+        {
+          "quantite": 165,
+          "unite": "g",
+          "nom": "sucre",
+          "commentaire": "cassonade"
+        },
+        {
+          "quantite": 50,
+          "unite": "g",
+          "nom": "sucre",
+          "commentaire": "blond ou blanc"
+        },
+        {
+          "quantite": 60,
+          "unite": "ml",
+          "nom": "lait végétal",
+          "commentaire": "non sucré"
+        },
         { "quantite": 15, "unite": "ml", "nom": "extrait de vanille" },
         { "quantite": 270, "unite": "g", "nom": "farine" },
         { "quantite": 4.5, "unite": "g", "nom": "levure chimique" },
-        { "quantite": 0.5, "unite": "cuillère à café", "nom": "bicarbonate alimentaire" },
+        {
+          "quantite": 0.5,
+          "unite": "cuillère à café",
+          "nom": "bicarbonate alimentaire"
+        },
         { "quantite": 0.25, "unite": "cuillère à café", "nom": "sel" },
-        { "quantite": 130, "unite": "g", "nom": "chocolat noir", "commentaire": "concassé" }
+        {
+          "quantite": 130,
+          "unite": "g",
+          "nom": "chocolat noir",
+          "commentaire": "concassé"
+        }
       ],
       "etapes": [
         "Pour 14 cookies.",
