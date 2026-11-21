@@ -136,11 +136,11 @@
       ]
     },
     {
-      "id": "cookies-compote-chocolat",
+      "id": "cookies-by-florent",
       "titre": "Cookies à la compote et pépites de chocolat",
       "photo": "images/cookies-pepites-chocolat.jpg",
       "lien": "https://vegan-pratique.fr/recettes/cookies-aux-pepites-de-chocolat/",
-      "tags": ["dessert"],
+      "tags": ["dessert", "cookies"],
       "ingredients": [
         {
           "quantite": 100,
@@ -230,6 +230,37 @@
         "Préparez votre sorbetière selon les instructions données par le manuel, mettez-la en route et versez votre préparation dans le bol de votre sorbetière.",
         "Laissez turbiner entre 20 et 30 minutes, jusqu'à ce que la crème glacée soit bien prise et épaisse et/ou jusqu'à ce que votre sorbetière indique qu'elle est prête.",
         "Transvasez dans un tupperware hermétique. Vous pouvez en manger tout de suite (elle aura une texture de glace à l'italienne), ou la conserver au congélateur pendant 1 à 2 mois. Sortez une bonne trentaine de minutes le tupperware du congélateur avant de servir pour que la glace ramollisse."
+      ]
+    },
+    {
+      "id": "cookies_by_senbai",
+      "titre": "Cookies pépites de chocolat",
+      "photo": "images/cookies-simples.jpg",
+      "lien": "www.pickuplimes.com/recipe/the-best-chocolate-chip-cookies-1437",
+      "tags": ["dessert", "cookies"],
+      "ingredients": [
+        { "quantite": 115, "unite": "g", "nom": "beurre", "commentaire": "vegan testé avec violife ou flora" },
+        { "quantite": 165, "unite": "g", "nom": "sucre", "commentaire": "cassonade" },
+        { "quantite": 50, "unite": "g", "nom": "sucre", "commentaire": "blond ou blanc"},
+        { "quantite": 60, "unite": "ml", "nom": "lait végétal", "commentaire": "non sucré" },
+        { "quantite": 15, "unite": "ml", "nom": "extrait de vanille" },
+        { "quantite": 270, "unite": "g", "nom": "farine" },
+        { "quantite": 4.5, "unite": "g", "nom": "levure chimique" },
+        { "quantite": 0.5, "unite": "cuillère à café", "nom": "bicarbonate alimentaire" },
+        { "quantite": 0.25, "unite": "cuillère à café", "nom": "sel" },
+        { "quantite": 130, "unite": "g", "nom": "chocolat noir", "commentaire": "concassé" }
+      ],
+      "etapes": [
+        "Pour 14 cookies.",
+        "Versez le beurre dans une casserole à feu moyen-vif. Laissez-le fondre en remuant sans arrêt.",
+        "Une fois fondu, il commencera à dorer et à dégager un parfum agréable ; continuez à remuer. De la mousse va se former, ce qui est tout à fait normal. Vous remarquerez que des résidus granuleux se déposent au fond de la casserole (pour le beurre violife). Dès que le beurre est doré et dégage une odeur de noisette, retirez-le du feu et laissez-le refroidir légèrement.",
+        "Dans un grand saladier, mélangez le beurre fondu refroidi, les sucres, le lait et l'extrait de vanille.",
+        "Placez une passoire au-dessus du saladier et ajoutez la farine, la levure chimique, le bicarbonate et le sel. Mélangez jusqu'à ce que le tout soit partiellement incorporé.",
+        "Incorporez délicatement les morceaux de chocolat jusqu'à ce qu'ils soient juste incorporés, puis placez la pâte au réfrigérateur pendant 1 heure (environ).",
+        "Au moment de la cuisson, tapissez deux plaques à pâtisserie de papier sulfurisé et préchauffez le four à 180°C.",
+        "À l’aide d’une cuillère à glace de 2 cuillères à soupe, déposez la pâte sur la plaque préparée. Laissez un espace de 5 cm entre chaque cookie. Si vous le souhaitez, ajoutez quelques morceaux de chocolat supplémentaires sur le dessus de chaque cookie pour leur donner un aspect « comme à la boulangerie ».",
+        "Faites cuire une plaque à la fois sur la grille du milieu du four pendant 12 à 14 minutes, ou jusqu’à ce que les cookies soient dorés.",
+        "Laissez-les refroidir un peu sur la plaque avant de les transférer sur une grille pour qu’ils refroidissent davantage. Les biscuits vont se raffermir en refroidissant. Bon appétit !"
       ]
     }
   ]
